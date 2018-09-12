@@ -7,7 +7,6 @@ const dynamicStyles = ({ theme }) => css`
 `
 
 const StyledBackground = styled('div')`
-  display: flex;
   box-sizing: border-box;
   height: 100vh;
   width: 100vw;
