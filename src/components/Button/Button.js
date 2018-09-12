@@ -3,21 +3,24 @@ import PropTypes from 'prop-types'
 import styled, { css, cx } from 'react-emotion'
 
 const dynamicStyles = ({ theme, disabled }) => css`
-  background: ${disabled ? theme.styles.text.disabled : theme.styles.ui.fill7};
+  background: ${disabled ? theme.colors.text.disabled : theme.colors.ui.fill7};
   &:focus {
-    outline-color: ${theme.styles.state.keyLight};
+    outline-color: ${theme.colors.state.keyLight};
   }
   &:hover {
-    background: ${disabled ? null : theme.styles.ui.fill8}
+    background: ${disabled ? null : theme.colors.ui.fill8}
   }
   &:active {
-    background: ${disabled ? null : theme.styles.ui.fill6}
+    background: ${disabled ? null : theme.colors.ui.fill6}
   }
   border-radius: ${theme.borderRadius.xs};
+  color: ${theme.colors.text.primary}
 `
 
 const StyledButton = styled('button')`
   display: flex;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   border: 0;
   padding: 10px;
