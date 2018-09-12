@@ -18,6 +18,7 @@ const dynamicStyles = ({ theme, disabled }) => css`
 
 const StyledButton = styled('button')`
   display: flex;
+  cursor: pointer;
   border: 0;
   padding: 10px;
   box-sizing: border-box;
@@ -26,8 +27,14 @@ const StyledButton = styled('button')`
 `
 
 const Button = (props) => {
+  const { displayHelp, helpMessage, clearHelp } = props
   return (
-    <StyledButton {...props} style={props.style} className={cx(props.className)}>
+    <StyledButton
+      {...props}
+      onMouseEnter={() => displayHelp(helpMessage.title, helpMessage.body)}
+      onMouseLeave={() => clearHelp()}
+      style={props.style}
+      className={cx(props.className)}>
       { props.children }
     </StyledButton>
   )
@@ -36,6 +43,18 @@ const Button = (props) => {
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
+  displayHelp: PropTypes.func,
+  clearHelp: PropTypes.func,
+  helpMessage: PropTypes.shape({
+    title: PropTypes.string,
+    body: PropTypes.string
+  })
+}
+
+Button.defaultProps = {
+  helpMessage: {title: '', body: ''},
+  displayHelp: () => null,
+  clearHelp: () => null
 }
 export default Button
