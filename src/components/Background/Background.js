@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css, cx } from 'react-emotion'
 
 const dynamicStyles = ({ theme }) => css`
-  background: ${theme.styles.ui.fill3};
+  background: ${theme.colors.ui.fill3};
 `
 
 const StyledBackground = styled('div')`

@@ -37,7 +37,7 @@ class Rhino extends Component {
       lang,
       sizes: styles.lang[lang].fontSize,
       font: styles.lang[lang].fontFamily,
-      styles: styles.theme[theme],
+      colors: styles.theme[theme],
       breakpoints: styles.breakpoints,
       borderRadius: styles.borderRadius,
       setTheme,
