@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css, cx } from 'react-emotion'
+import styled, { css } from 'react-emotion'
 
 const dynamicStyles = ({ theme, disabled }) => css`
+  font-family: ${theme.font};
   background: ${disabled ? theme.colors.text.disabled : theme.colors.ui.fill7};
   &:focus {
-    outline-color: ${theme.colors.state.keyLight};
+    outline-color: rgba(37, 204, 172, 1);
   }
   &:hover {
     background: ${disabled ? null : theme.colors.ui.fill8}
@@ -13,17 +14,22 @@ const dynamicStyles = ({ theme, disabled }) => css`
   &:active {
     background: ${disabled ? null : theme.colors.ui.fill6}
   }
+  &::selection {
+    color: ${theme.colors.text.base};
+    background: rgba(204, 204, 203, 0.1);
+  }
   border-radius: ${theme.borderRadius.xs};
-  color: ${theme.colors.text.primary}
+  color: ${theme.colors.text.primary};
 `
 
 const StyledButton = styled('button')`
   display: flex;
+  flex-shrink: 0;
   width: 100%;
   height: 100%;
   cursor: pointer;
   border: 0;
-  padding: 10px;
+  padding: 0;
   box-sizing: border-box;
   ${dynamicStyles};
 `
@@ -31,16 +37,14 @@ const StyledButton = styled('button')`
 const Button = (props) => {
   return (
     <StyledButton
-      {...props}
-      className={cx(props.className)}>
+      {...props}>
       { props.children }
     </StyledButton>
   )
 }
 
 Button.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string
+  children: PropTypes.node
 }
 
 export default Button
