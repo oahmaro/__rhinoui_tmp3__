@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { cx, css } from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import { withTheme } from 'emotion-theming'
 
 const dynamicStyles = ({ theme, link, translation }) => css`
@@ -13,7 +13,7 @@ const dynamicStyles = ({ theme, link, translation }) => css`
   };
   &::selection {
     color: ${theme.colors.text.base};
-    background: ${theme.colors.state.keyLight};
+    background: rgba(204, 204, 203, 0.1);
   }
 `
 
@@ -30,8 +30,7 @@ const Text = (props) => {
 `
   return (
     <StyledText
-      {...props}
-      className={cx(props.className)}>
+      {...props}>
       { props.theme.lang === 'en' ? props.children : props.translation || props.children }
     </StyledText>
   )
@@ -39,8 +38,7 @@ const Text = (props) => {
 
 Text.propTypes = {
   children: PropTypes.node,
-  link: PropTypes.bool,
-  translation: PropTypes.string
+  translation: PropTypes.string // will be replaced with react-intl
 }
 
 export default withTheme(Text)

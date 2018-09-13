@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css, cx } from 'react-emotion'
+import styled, { css } from 'react-emotion'
 
 const dynamicStyles = ({ theme }) => css`
   background: ${theme.colors.ui.fill3};
@@ -17,13 +17,12 @@ const StyledBackground = styled('div')`
 
 const Background = (props) => {
   return (
-    <StyledBackground {...props} style={props.style} className={cx(props.className)} />
+    <StyledBackground {...props} />
   )
 }
 
 Background.propTypes = {
-  className: PropTypes.string,
-  style: PropTypes.object
+  className: PropTypes.string
 }
 
 export default Background
