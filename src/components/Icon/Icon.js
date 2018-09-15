@@ -2,13 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
 import { icons } from './data.js'
+import Box from '../Box'
 
 const pathDynamicStyles = ({ theme, color }) => css`
   fill: ${color || theme.colors.text.primary};
 `
 
-const iconDynamicStyles = ({ theme }) => css`
-  width: ${theme.sizes.md};
+const containerDynamicStyles = ({ theme, size }) => css`
+  width: ${(size && (size + 'px')) || theme.sizes.lg};
+  height: ${(size && (size + 'px')) || theme.sizes.lg};
 `
 
 const StyledPath = styled('path')`
@@ -16,13 +18,21 @@ const StyledPath = styled('path')`
 `
 
 const StyledIcon = styled('svg')`
-  ${iconDynamicStyles};
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
 `
+
+const Container = styled(Box)`
+  ${containerDynamicStyles}
+`
+
 const Icon = (props) => {
   return (
-    <StyledIcon {...props} viewBox='0 0 512 512'>
-      <StyledPath {...props} d={icons[props.icon]} />
-    </StyledIcon>
+    <Container {...props}>
+      <StyledIcon viewBox='0 0 512 512'>
+        <StyledPath d={icons[props.icon]} />
+      </StyledIcon>
+    </Container>
   )
 }
 

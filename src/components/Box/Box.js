@@ -5,7 +5,8 @@ import styled from 'react-emotion'
 
 const StyledBox = styled('div')`
   display: flex;
-  background: black;
+  align-content: flex-start;
+  justify-content: flex-start;
   z-index: 1;
   box-sizing: border-box;
 `

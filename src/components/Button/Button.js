@@ -25,8 +25,6 @@ const dynamicStyles = ({ theme, disabled }) => css`
 const StyledButton = styled('button')`
   display: flex;
   flex-shrink: 0;
-  width: 100%;
-  height: 100%;
   cursor: pointer;
   border: 0;
   padding: 0;
