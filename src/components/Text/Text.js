@@ -22,11 +22,12 @@ const Text = (props) => {
 
   const StyledText = styled(Tag)`
   display: block;
-  width: 100%;
-  height: 100%;
   margin: 0;
   text-decoration: none;
-  ${dynamicStyles}
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  ${dynamicStyles};
 `
   return (
     <StyledText
