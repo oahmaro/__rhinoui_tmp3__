@@ -5,9 +5,11 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "emotion": "^9.2.8",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-emotion": "^9.2.8",
     "react-scripts": "^1.1.4",
     "rhinoui-refactor": "link:.."
   },
